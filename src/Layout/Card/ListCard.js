@@ -1,6 +1,8 @@
 import { deleteCard } from "../../utils/api";
+import { useNavigate } from "react-router-dom";
 
 function ListCard({ cards }) {
+    const navigate = useNavigate();
   // Check if cards is undefined, and render a message if it is
   const deleteHandler = (cardId) => {
     const confirmToDeleteCard = window.confirm(
@@ -11,7 +13,7 @@ function ListCard({ cards }) {
       deleteCard(cardId).then(window.location.reload());
     }
   };
-
+    
   if (cards) {
     const allCard = cards.map((card) => {
       return (
@@ -25,7 +27,11 @@ function ListCard({ cards }) {
             </div>
             <div className="col-4">
               <small className="float-right m-2">
-                <button type="button" className="btn btn-secondary mx-2 ">
+                <button
+                  type="button"
+                  className="btn btn-secondary mx-2 "
+                  onClick={() => navigate(`/decks/${card.deckId}/cards/${card.id}/edit`)}
+                >
                   Edit
                 </button>
                 <button

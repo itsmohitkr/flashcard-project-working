@@ -48,29 +48,16 @@
       "id": 5
     },
     {
-      "cards": [],
-      "front": "b",
-      "back": "b",
-      "deckId": 1,
-      "id": 7
-    },
-    {
       "front": "sdfsdf",
       "back": "sdfsdfsdf",
       "deckId": 2,
       "id": 13
     },
     {
-      "front": "zxczxczxczxcz",
-      "back": "zxczxczxc",
+      "front": "front",
+      "back": "back",
       "deckId": 3,
       "id": 15
-    },
-    {
-      "front": "zxczxcz",
-      "back": "zxczxczxcxz",
-      "deckId": 3,
-      "id": 16
     }
   ]
 }

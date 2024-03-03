@@ -1,6 +1,14 @@
 import { useNavigate } from "react-router-dom";
 
-function CardForm({ front, back, setFront, setBack, deck, handleSubmit }) {
+function CardForm({
+  front,
+  back,
+  setFront,
+  setBack,
+  deck,
+  handleSubmit,
+  edit,
+}) {
   const navigate = useNavigate();
   const handleFrontChange = (event) => {
     setFront(event.target.value);
@@ -34,15 +42,27 @@ function CardForm({ front, back, setFront, setBack, deck, handleSubmit }) {
           value={back}
         />
       </div>
-      <button
-        type="submit"
-        className="btn btn-secondary"
-        onClick={() => {
-          navigate(`/decks/${deck.id}`);
-        }}
-      >
-        Done
-      </button>
+      {!edit ? (
+        <button
+          type="submit"
+          className="btn btn-secondary"
+          onClick={() => {
+            navigate(`/decks/${deck.id}`);
+          }}
+        >
+          Done
+        </button>
+      ) : (
+        <button
+          type="submit"
+          className="btn btn-secondary"
+          onClick={() => {
+            navigate(`/decks/${deck.id}`);
+          }}
+        >
+          Cancle
+        </button>
+      )}
       <button type="submit" className="btn btn-primary m-2">
         Save
       </button>
