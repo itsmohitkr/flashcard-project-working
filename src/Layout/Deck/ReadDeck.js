@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams,useNavigate } from "react-router-dom";
-import { readDeck } from "../../utils/api";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { deleteDeck, readDeck } from "../../utils/api";
 import ListCard from "../Card/ListCard";
 
 function ReadDeck() {
@@ -27,8 +27,18 @@ function ReadDeck() {
     loadDeckAndCards();
     return () => abortController.abort();
   }, [deckId]);
-  console.log(deck);
-  console.log(cards);
+
+  // this function must be async function
+  async function handleDeckDelete() {
+    const confirm = window.confirm(
+      "Are you sure you want to delete this deck? You will be unable to recover it."
+    );
+    if (confirm) {
+      await deleteDeck(deckId);
+      navigate("/");
+      window.location.reload();
+    }
+  }
   return (
     <div>
       <ol className="breadcrumb">
@@ -44,10 +54,14 @@ function ReadDeck() {
             <h5 className="card-title">{deck.name} </h5>
           </div>
           <p className="card-text">{deck.description}</p>
-          <button type="button" className="btn btn-secondary">
+          <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={() => navigate(`/decks/${deck.id}/edit`)}
+          >
             Edit
           </button>
-          <button type="button" className="btn btn-primary mx-2">
+          <button type="button" className="btn btn-primary mx-2" onClick={()=>navigate(`/decks/${deckId}/study`)}>
             Study
           </button>
           <button
@@ -58,7 +72,11 @@ function ReadDeck() {
             + Add Cards
           </button>
           <small className="float-right">
-            <button type="button" className="btn btn-danger">
+            <button
+              type="button"
+              className="btn btn-danger"
+              onClick={handleDeckDelete}
+            >
               Delete
             </button>
           </small>

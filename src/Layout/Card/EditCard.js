@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams,useNavigate } from "react-router-dom";
-import { readCard, readDeck, updateCard } from "../../utils/api";
+import { readCard, readDeck, updateCard} from "../../utils/api";
 import CardForm from "../Card/CardForm";
 
 function EditCard() {
@@ -72,8 +72,8 @@ function EditCard() {
         setFront={setFront}
         setBack={setBack}
         deck={deck}
-              handleSubmit={handleSubmit}
-              edit={true}
+        handleSubmit={handleSubmit}
+        edit={true}
       />
     </div>
   );

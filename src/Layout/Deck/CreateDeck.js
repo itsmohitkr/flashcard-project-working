@@ -65,7 +65,7 @@ function CreateDeck() {
         >
           Cancle
         </button>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary mx-2">
           Submit
         </button>
       </form>

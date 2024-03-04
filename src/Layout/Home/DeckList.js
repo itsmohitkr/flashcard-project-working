@@ -3,6 +3,7 @@ import { deleteDeck } from "../../utils/api";
 
 function DeckList({ decks }) {
   const navigate = useNavigate();
+  
   const deleteHandler = (deckId) => {
     console.log(deckId);
     const confirm = window.confirm(
