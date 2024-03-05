@@ -32,7 +32,7 @@ function DeckList({ decks }) {
           <button type="button" className="btn btn-secondary" onClick={()=>{navigate(`/decks/${deck.id}`)}}>
             View
           </button>
-          <button type="button" className="btn btn-primary mx-2">
+          <button type="button" className="btn btn-primary mx-2" onClick={() => { navigate(`/decks/${deck.id}/study`) }}>
             Study
           </button>
           <button
